@@ -1,3 +1,5 @@
+using System;
+
 namespace YetAnotherDungeonCrawler
 {
     /// <summary>
@@ -10,10 +12,10 @@ namespace YetAnotherDungeonCrawler
         public int HP { get { return hp; } private set { hp = value; } }
 
         // Attacks
-        private int attackPower;
+        public abstract int attackPower { get; set; }
 
         // Type of enemy
-        private string type;
+        public abstract string EnemyType { get; set; }
         
         // Bools
         private bool bIsDead = false;
