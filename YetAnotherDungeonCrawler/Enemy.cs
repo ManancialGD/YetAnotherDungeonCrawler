@@ -1,6 +1,6 @@
 using System;
 
-namespace YetAnotherDungeonCrawler
+namespace YetAnotherDungeonCrawler.Models
 {
     /// <summary>
     /// Since we can have multiple types of enemy, this class will be abstract to create others from it.

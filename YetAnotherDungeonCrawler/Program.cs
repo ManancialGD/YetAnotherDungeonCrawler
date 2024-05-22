@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace YetAnotherDungeonCrawler
+namespace YetAnotherDungeonCrawler.Views
 {
     /// <summary>
-    /// This will be the main program, when we will be receiving data from the player and processing.
+    /// This will be the view
     /// </summary>
     class Program
     {

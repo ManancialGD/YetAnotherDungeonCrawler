@@ -1,4 +1,4 @@
-namespace YetAnotherDungeonCrawler
+namespace YetAnotherDungeonCrawler.Models
 {
     /// <summary>
     /// Represents an area of the Dungeon

@@ -1,4 +1,4 @@
-namespace YetAnotherDungeonCrawler
+namespace YetAnotherDungeonCrawler.Models
 {
     /// <summary>
     /// This is an Enemy type that has a constructor for intansiate in a room

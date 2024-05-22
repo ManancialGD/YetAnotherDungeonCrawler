@@ -1,4 +1,4 @@
-namespace YetAnotherDungeonCrawler
+namespace YetAnotherDungeonCrawler.Models
 {
     class Player
     {
@@ -55,6 +55,7 @@ namespace YetAnotherDungeonCrawler
         {
             HP += healAmount;
         }
+        
         /// <summary>
         /// This Method is to damage Player.
         /// </summary>

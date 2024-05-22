@@ -1,4 +1,4 @@
-namespace YetAnotherDungeonCrawler
+namespace YetAnotherDungeonCrawler.Models
 {
     /// <summary>
     /// This class will be a base for other items
