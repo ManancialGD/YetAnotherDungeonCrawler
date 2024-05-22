@@ -4,7 +4,7 @@ namespace YetAnotherDungeonCrawler.Models
     {
         private int maxHP = 100;
         private int hp;
-        public int HP { get{ return hp; } private set { hp = value; if (hp < 0) hp = 0; if (hp > maxHP) hp = maxHP;} } // this set will be private only and will make sure that hp will not be less then 0.
+        public int HP { get { return hp; } private set { hp = value; if (hp < 0) hp = 0; if (hp > maxHP) hp = maxHP; } } // this set will be private only and will make sure that hp will not be less then 0.
 
         private int attackPower;
         public int AttackPower { get; private set; }
@@ -15,6 +15,8 @@ namespace YetAnotherDungeonCrawler.Models
         public Player(string name)
         {
             this.name = name;
+            this.hp = maxHP;
+            this.attackPower = 10; // Default attack power
         }
 
         /// <summary>
@@ -22,27 +24,24 @@ namespace YetAnotherDungeonCrawler.Models
         /// </summary>
         public void Move()
         {
-
+            // Movement logic here
         }
 
         /// <summary>
         /// This method will be for attacking enemies.
         /// It will receive the Enemy and use the method (Damage) from the Enemy.
         /// </summary>
-        public void Attack( Enemy enemy )
+        public void Attack(Enemy enemy)
         {
             enemy.Damage(attackPower);
         }
-        
+
         /// <summary>
         /// This Method will take an Item and equip in Player's Inventory
         /// </summary>
         public void PickUpItem(ItemBase item)
         {
-            /* if (item as Weapon) // This will be in the future, when we add the Weapon class
-            {
-                attackPower += item.attackPower;
-            } */
+            // Logic for picking up and equipping items
         }
 
         // HP management Methods
@@ -55,7 +54,7 @@ namespace YetAnotherDungeonCrawler.Models
         {
             HP += healAmount;
         }
-        
+
         /// <summary>
         /// This Method is to damage Player.
         /// </summary>

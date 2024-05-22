@@ -1,4 +1,5 @@
 ﻿using System;
+using YetAnotherDungeonCrawler.Controllers;
 
 namespace YetAnotherDungeonCrawler.Views
 {
@@ -7,9 +8,16 @@ namespace YetAnotherDungeonCrawler.Views
     /// </summary>
     class Program
     {
+        static Controller controller;
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            controller = new Controller();
+            controller.Run();
+        }
+
+        public static void WriteOnConsole(string s)
+        {
+            Console.WriteLine(s);
         }
     }
 }
