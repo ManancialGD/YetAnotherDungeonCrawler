@@ -2,19 +2,21 @@ namespace YetAnotherDungeonCrawler.Models
 {
     class HealPotion : ItemBase
     {
-        private string itemType = "HealPotion";
-        public override string ItemType { get { return itemType; } set { itemType = value; } }
-
+        private bool isEquiped;
+        public override bool IsEquiped { get { return isEquiped; } set { isEquiped = value; } }
+        private int level;
         private int healAmount;
-
-        public HealPotion(int healAmount)
+        public HealPotion(int level)
         {
-            this.healAmount = healAmount;
+            this.level = level;
+            healAmount = level * 10;
         }
 
-        public override void Use(Player player)
+        public override string Use(Player player)
         {
+            if (!IsEquiped) return "You need to equipe the item first.";
             player.Heal(healAmount);
+            return "Heal Potion used";
         }
 
         public override void Equip()
@@ -24,7 +26,7 @@ namespace YetAnotherDungeonCrawler.Models
 
         public override string ToString()
         {
-            return $"{ItemType} (Heals for {healAmount})";
+            return $"Heal Potion, (Heals for {healAmount})";
         }
     }
 }

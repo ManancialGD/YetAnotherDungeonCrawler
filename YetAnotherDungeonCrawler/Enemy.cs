@@ -12,10 +12,6 @@ namespace YetAnotherDungeonCrawler.Models
 
         // Attacks
         public abstract int AttackPower { get; set; }
-
-        // Type of enemy
-        public abstract string EnemyType { get; set; }
-
         // Bools
         public abstract bool BIsDead { get; set; }
 

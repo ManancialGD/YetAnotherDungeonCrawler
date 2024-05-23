@@ -5,11 +5,9 @@ namespace YetAnotherDungeonCrawler.Models
     /// </summary>
     abstract class ItemBase
     {
-        // Variables
-        public abstract string ItemType { get; set; }
-
+        public abstract bool IsEquiped { get; set; }
         // Methods
-        public abstract void Use(Player player);
+        public abstract string Use(Player player);
         public abstract void Equip();
     }
 }

@@ -2,7 +2,7 @@ namespace YetAnotherDungeonCrawler.Models
 {
     /// <summary>
     /// Represents an area of the Dungeon
-    /// Can have an enemy or an item or both
+    /// Can have an enemy, an item or both
     /// </summary>
     class Room
     {
@@ -11,7 +11,7 @@ namespace YetAnotherDungeonCrawler.Models
 
         public Room(ItemBase[] items, Enemy[] enemies)
         {
-            Items = items ?? new ItemBase[0];
+            Items = items ?? new HealPotion[0];
             Enemies = enemies ?? new Enemy[0];
         }
     }
