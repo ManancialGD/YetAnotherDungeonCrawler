@@ -4,6 +4,8 @@ namespace YetAnotherDungeonCrawler.Models
 {
     class Map
     {
+
+
         public Room[] Rooms { get; private set; }
         int roomsAmount = 10;
 
@@ -16,7 +18,7 @@ namespace YetAnotherDungeonCrawler.Models
         {
             List<ItemBase> items = new List<ItemBase>
             {
-                new HealPotion(10)
+                new HealPotion(3)
             };
 
             List<Enemy> enemies = new List<Enemy>

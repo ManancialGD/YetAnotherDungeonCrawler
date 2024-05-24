@@ -9,10 +9,11 @@ namespace YetAnotherDungeonCrawler.Models
         public ItemBase[] Items { get; private set; }
         public Enemy[] Enemies { get; private set; }
 
-        public Room(ItemBase[] items, Enemy[] enemies)
+        public Room(ItemBase[] items, Enemy[] enemies, bool[] exits)
         {
             Items = items ?? new HealPotion[0];
             Enemies = enemies ?? new Enemy[0];
+            this.Exits = Exits
         }
     }
 }

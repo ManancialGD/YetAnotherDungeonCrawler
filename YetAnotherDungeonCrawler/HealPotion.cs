@@ -1,3 +1,5 @@
+using System;
+
 namespace YetAnotherDungeonCrawler.Models
 {
     class HealPotion : ItemBase
@@ -9,7 +11,23 @@ namespace YetAnotherDungeonCrawler.Models
         public HealPotion(int level)
         {
             this.level = level;
-            healAmount = level * 10;
+            switch (level)
+            {
+                case 1:
+                    healAmount = 10;
+                    break;
+                case 2:
+                    healAmount = 25;
+                    break;
+                case 3:
+                    healAmount = 50;
+                    break;
+
+                default:
+                    Console.WriteLine("ERRO 9818241");
+                    healAmount = 10;
+                    break;
+            }
         }
 
         public override string Use(Player player)
@@ -26,7 +44,7 @@ namespace YetAnotherDungeonCrawler.Models
 
         public override string ToString()
         {
-            return $"Heal Potion, (Heals for {healAmount})";
+            return $"Heal Potion LVL:{level}, (Heals {healAmount}hp)";
         }
     }
 }
