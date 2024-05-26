@@ -30,7 +30,7 @@ namespace YetAnotherDungeonCrawler.Models
             {
                 new HealPotion(2)
             };
-            Enemy enemyRoom3 = new Zombie(30, 40);
+            Enemy enemyRoom3 = new Zombie(20, 40);
             Rooms.Add(new Room(3, itemsRoom3, enemyRoom3));
 
             // Room 4: A even more powerfull zombie
@@ -46,7 +46,7 @@ namespace YetAnotherDungeonCrawler.Models
             {
 
             };
-            Enemy enemyRoom5 = new Zombie(40, 70);
+            Enemy enemyRoom5 = new Zombie(35, 75);
             Rooms.Add(new Room(5, itemRoom5, enemyRoom5));
 
 
