@@ -197,6 +197,7 @@ namespace YetAnotherDungeonCrawler.Controllers
                 }
                 else
                 {
+
                     Program.WriteOnConsole("");
                     string useMessage = Player.InteractWithItem(itemIndex - 1); // Convert to zero-based index
                     Program.WriteOnConsole(useMessage);

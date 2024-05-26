@@ -21,8 +21,11 @@ namespace YetAnotherDungeonCrawler.Models
         {
             IsEquiped = b;
 
-            if (IsEquiped) return "Item is equipped";
-            else return "Item unequipped";
+            if (IsEquiped)
+            {
+                return $"Wooden sword Level:{Level} equipped";
+            }
+            else return $"Wooden sword Level:{Level} unequipped";
         }
         public override string ToString()
         {
