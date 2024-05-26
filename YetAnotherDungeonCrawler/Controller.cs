@@ -72,7 +72,11 @@ namespace YetAnotherDungeonCrawler.Controllers
             else
             {
                 Program.WriteOnConsole(" | move - Move to the next room");
-                if (currentRoom.Items != null) Program.WriteOnConsole(" | pickup - Pick up items in the room");
+
+                if (currentRoom.Items.Length > 0)
+                {
+                    Program.WriteOnConsole(" | pickup - Pick up items in the room");
+                }
             }
             Program.WriteOnConsole(" | inventory - Open the inventory");
         }
