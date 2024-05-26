@@ -33,7 +33,8 @@ namespace YetAnotherDungeonCrawler.Controllers
 
         public void GenerateMap()
         {
-            map.CreateMap();
+            map.InitializeVariables();
+            map.InitializeMap();
         }
     }
 }

@@ -5,13 +5,37 @@ namespace YetAnotherDungeonCrawler.Models
     class Map
     {
 
+        private ItemBase[] items;
+        private Enemy[] enemies;
 
-        public Room[] Rooms { get; private set; }
-        int roomsAmount = 10;
+        public Room[] Rooms = new Room[2];
+        public void InitializeVariables()
+        {
+            // Inicializar o array usando a sintaxe correta em C#
+            items = new ItemBase[]
+            {
+            new HealPotion(1),
+            new HealPotion(2)
+            };
+
+            enemies = new Enemy[]
+            {
+            new Zombie(15, 50),
+            new Zombie(30, 100)
+            };
+        }
+
+        public void InitializeMap()
+        {
+            Rooms[0] = new Room(items, enemies);
+            Rooms[1] = new Room(items, enemies);
+        }
+
 
         public Map()
         {
-            Rooms = new Room[roomsAmount];
+            InitializeVariables();
+            InitializeMap();
         }
 
         public void CreateMap()
