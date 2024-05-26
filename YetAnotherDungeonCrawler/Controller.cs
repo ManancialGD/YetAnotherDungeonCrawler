@@ -10,6 +10,7 @@ namespace YetAnotherDungeonCrawler.Controllers
         public Player Player { get; private set; }
         private int currentRoomIndex;
         private bool justEnteredRoom;
+        public bool gameFinished = false;
 
         public Controller()
         {
@@ -24,7 +25,7 @@ namespace YetAnotherDungeonCrawler.Controllers
 
         public void Run()
         {
-            while (true)
+            while (!gameFinished)
             {
                 Room currentRoom = Map.Rooms[currentRoomIndex];
 
@@ -105,6 +106,11 @@ namespace YetAnotherDungeonCrawler.Controllers
                         {
                             Program.WriteOnConsole("You have killed the enemy.");
                             currentRoom.RemoveEnemy();
+                            if(currentRoom.RoomIndex == 5){
+
+                                FinishGame();
+
+                            }
                         }
                     }
                     else
@@ -131,6 +137,10 @@ namespace YetAnotherDungeonCrawler.Controllers
             }
         }
 
+        private void FinishGame(){
+            gameFinished = false;
+            Program.WriteOnConsole("Congrats, you have finished the game!");
+        }
         private void MoveToNextRoom()
         {
             if (currentRoomIndex < Map.Rooms.Count - 1)
