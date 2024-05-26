@@ -54,7 +54,8 @@ namespace YetAnotherDungeonCrawler.Models
                 }
                 else if ( item is WoodenSword woodenSword)
                 {
-                    result = woodenSword.Equip(true);
+                    if (!woodenSword.IsEquiped) result = woodenSword.Equip(true);
+                    else result = woodenSword.Equip(false);
                 }
                 return result;
             }
