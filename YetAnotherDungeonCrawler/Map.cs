@@ -21,16 +21,24 @@ namespace YetAnotherDungeonCrawler.Models
             {
                 new HealPotion(2)
             };
-            Enemy enemyRoom2 = new Zombie(15, 50);
+            Enemy enemyRoom2 = new Zombie(10, 30);
             Rooms.Add(new Room(itemsRoom2, enemyRoom2));
 
-            // Room 3: The most powerful zombie with 30 attack power and 100 HP & A Wooden Sword
+            // Room 3: A most powerfull zombie with 30 attack damage and 50 hp & a WoodenSword
             ItemBase[] itemsRoom3 = new ItemBase[]
             {
                 new WoodenSword(1)
             };
-            Enemy enemyRoom3 = new Zombie(30, 100);
+            Enemy enemyRoom3 = new Zombie(30, 50);
             Rooms.Add(new Room(itemsRoom3, enemyRoom3));
+
+            // Room 4: A even more powerfull zombie
+            ItemBase[] itemRoom4 = new ItemBase[]
+            {
+
+            };
+            Enemy enemyRoom4 = new Zombie(50, 75);
+            Rooms.Add(new Room(itemRoom4, enemyRoom4));
         }
     }
 }
