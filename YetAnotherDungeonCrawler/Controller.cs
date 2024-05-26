@@ -11,6 +11,7 @@ namespace YetAnotherDungeonCrawler.Controllers
         private int currentRoomIndex;
         private bool justEnteredRoom;
         public bool gameFinished = false;
+        private bool unknownCommand = false;
 
         public Controller()
         {
@@ -31,7 +32,7 @@ namespace YetAnotherDungeonCrawler.Controllers
 
 
 
-                if (!justEnteredRoom && currentRoom.Enemy != null)
+                if (!justEnteredRoom && currentRoom.Enemy != null && !unknownCommand)
                 {
                     string attackMessage = currentRoom.Enemy.Attack(Player);
                     Program.WriteOnConsole(attackMessage);
@@ -96,6 +97,7 @@ namespace YetAnotherDungeonCrawler.Controllers
                     {
                         Program.WriteOnConsole("You cannot move until the enemy is defeated.");
                     }
+                    unknownCommand = false;
                     break;
                 case "attack":
                     if (currentRoom.Enemy != null)
@@ -117,6 +119,7 @@ namespace YetAnotherDungeonCrawler.Controllers
                     {
                         Program.WriteOnConsole("There are no enemies to attack.");
                     }
+                    unknownCommand = false;
                     break;
                 case "pickup":
                     if (currentRoom.Enemy == null)
@@ -127,12 +130,15 @@ namespace YetAnotherDungeonCrawler.Controllers
                     {
                         Program.WriteOnConsole("You cannot pick up items until the enemy is defeated.");
                     }
+                    unknownCommand = false;
                     break;
                 case "inventory":
                     OpenInventory();
+                    unknownCommand = false;
                     break;
                 default:
                     Program.WriteOnConsole("Unknown command.");
+                    unknownCommand = true;
                     break;
             }
         }
