@@ -25,7 +25,7 @@ namespace YetAnotherDungeonCrawler.Views
             }
 
             WriteOnConsole($"You are in room {room.RoomIndex} with {(room.Enemy != null ? "1 enemy" : "no enemies")} and {room.Items.Length} items.");
-            WriteOnConsole($"Player HP: {player.HP}");
+            DisplayPlayerHealth(player);
             if (room.Enemy != null)
             {
                 WriteOnConsole(room.Enemy.ToString());
