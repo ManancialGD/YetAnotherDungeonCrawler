@@ -28,13 +28,12 @@ namespace YetAnotherDungeonCrawler.Controllers
             {
                 Room currentRoom = Map.Rooms[currentRoomIndex];
 
-                Program.DisplayRoomInfo(currentRoom, Player);
+
 
                 if (!justEnteredRoom && currentRoom.Enemy != null)
                 {
                     string attackMessage = currentRoom.Enemy.Attack(Player);
                     Program.WriteOnConsole(attackMessage);
-                    Program.DisplayPlayerHealth(Player); // Display health after enemy attack
 
                     if (Player.HP <= 0)
                     {
@@ -46,11 +45,13 @@ namespace YetAnotherDungeonCrawler.Controllers
                 {
                     justEnteredRoom = false;
                 }
+                Program.DisplayRoomInfo(currentRoom, Player);
 
                 DisplayAvailableCommands(currentRoom);
                 string command = Program.GetPlayerCommand();
                 ProcessCommand(command, currentRoom);
 
+                
                 if (Player.HP <= 0)
                 {
                     Program.WriteOnConsole("[!] You have died. Game Over.");
