@@ -7,6 +7,7 @@ namespace YetAnotherDungeonCrawler.Views
     class Program
     {
         static Controller controller;
+        static bool gameStarted = true;
 
         static void Main(string[] args)
         {
@@ -16,7 +17,14 @@ namespace YetAnotherDungeonCrawler.Views
 
         public static void DisplayRoomInfo(Room room, Player player)
         {
-            WriteOnConsole($"You are in a room with {(room.Enemy != null ? "1 enemy" : "no enemies")} and {room.Items.Length} items.");
+
+            if (gameStarted)
+            {
+                BigSpace();
+                gameStarted = false;
+            }
+
+            WriteOnConsole($"You are in room {room.RoomIndex} with {(room.Enemy != null ? "1 enemy" : "no enemies")} and {room.Items.Length} items.");
             WriteOnConsole($"Player HP: {player.HP}");
             if (room.Enemy != null)
             {
@@ -24,11 +32,11 @@ namespace YetAnotherDungeonCrawler.Views
             }
             foreach (var item in room.Items)
             {
-                if ( item is WoodenSword woodenSword )
+                if (item is WoodenSword woodenSword)
                 {
                     WriteOnConsole(woodenSword.ToString());
                 }
-                else if ( item is HealPotion healPotion )
+                else if (item is HealPotion healPotion)
                 {
                     WriteOnConsole(healPotion.ToString());
                 }
@@ -39,10 +47,7 @@ namespace YetAnotherDungeonCrawler.Views
         {
             WriteOnConsole("Enter a command: ");
             string command = Console.ReadLine();
-            for (int i = 0; i < 15; i++)
-            {
-                WriteOnConsole("\n");
-            }
+            BigSpace();
 
             return command;
         }
@@ -65,6 +70,14 @@ namespace YetAnotherDungeonCrawler.Views
         public static void DisplayPlayerHealth(Player player)
         {
             WriteOnConsole($"Player HP: {player.HP}");
+        }
+
+        static public void BigSpace()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                WriteOnConsole("\n");
+            }
         }
     }
 }

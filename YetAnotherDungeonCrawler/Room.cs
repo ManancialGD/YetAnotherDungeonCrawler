@@ -4,11 +4,13 @@ namespace YetAnotherDungeonCrawler.Models
     {
         public ItemBase[] Items { get; private set; }
         public Enemy Enemy { get; private set; }
+        public int RoomIndex;
 
-        public Room(ItemBase[] items, Enemy enemy)
+        public Room(int roomIndex, ItemBase[] items, Enemy enemy)
         {
             Items = items ?? new ItemBase[0];
             Enemy = enemy;
+            RoomIndex = roomIndex;
         }
 
         public void RemoveEnemy()

@@ -38,7 +38,7 @@ namespace YetAnotherDungeonCrawler.Controllers
 
                     if (Player.HP <= 0)
                     {
-                        Program.WriteOnConsole("You have been killed by the enemy. Game Over.");
+                        Program.WriteOnConsole("[!] You have been killed by the enemy. Game Over.");
                         break;
                     }
                 }
@@ -53,13 +53,12 @@ namespace YetAnotherDungeonCrawler.Controllers
 
                 if (Player.HP <= 0)
                 {
-                    Program.WriteOnConsole("You have died. Game Over.");
+                    Program.WriteOnConsole("[!] You have died. Game Over.");
                     break;
                 }
 
                 // Add two empty lines for spacing
-                Program.WriteOnConsole(string.Empty);
-                Program.WriteOnConsole(string.Empty);
+                Program.WriteOnConsole("\n");
             }
         }
 
@@ -68,14 +67,14 @@ namespace YetAnotherDungeonCrawler.Controllers
             Program.WriteOnConsole("Available commands:");
             if (currentRoom.Enemy != null)
             {
-                Program.WriteOnConsole("attack - Attack the enemy");
+                Program.WriteOnConsole(" | attack - Attack the enemy");
             }
             else
             {
-                Program.WriteOnConsole("move - Move to the next room");
-                if (currentRoom.Items != null) Program.WriteOnConsole("pickup - Pick up items in the room");
+                Program.WriteOnConsole(" | move - Move to the next room");
+                if (currentRoom.Items != null) Program.WriteOnConsole(" | pickup - Pick up items in the room");
             }
-            Program.WriteOnConsole("inventory - Open the inventory");
+            Program.WriteOnConsole(" | inventory - Open the inventory");
         }
 
         private void ProcessCommand(string command, Room currentRoom)
@@ -169,6 +168,7 @@ namespace YetAnotherDungeonCrawler.Controllers
                 if (itemIndex == 0)
                 {
                     Program.WriteOnConsole("Cancelled.");
+                    Program.BigSpace();
                 }
                 else
                 {
