@@ -144,7 +144,7 @@ namespace YetAnotherDungeonCrawler.Controllers
         }
 
         private void FinishGame(){
-            gameFinished = false;
+            gameFinished = true;
             Program.WriteOnConsole("Congrats, you have finished the game!");
         }
         private void MoveToNextRoom()
