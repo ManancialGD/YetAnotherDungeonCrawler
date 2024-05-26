@@ -41,33 +41,43 @@ namespace YetAnotherDungeonCrawler.Models
             Inventory.Add(item);
             return $"You picked up {item}.";
         }
-        public string InteractWithItem(int index)
+    public string InteractWithItem(int index)
+    {
+        if (index >= 0 && index < Inventory.Count)
         {
-            if (index >= 0 && index < Inventory.Count)
+            string result = "Item Unknown";
+            ItemBase item = Inventory[index];
+            if (item is HealPotion healPotion)
             {
-                string result = "Item Unkown";
-                ItemBase item = Inventory[index];
-                if (item is HealPotion healPotion)
+                result = healPotion.Use(this);
+                Inventory.RemoveAt(index);
+            }
+            else if (item is WoodenSword woodenSword)
+            {
+                foreach (ItemBase currentItem in Inventory)
                 {
-                    result = healPotion.Use(this);
-                    Inventory.RemoveAt(index);
-                }
-                else if ( item is WoodenSword woodenSword)
-                {
-                    foreach (Weapon weapon in Inventory)
+                    if (currentItem is Weapon weapon)
                     {
                         weapon.Equip(false);
                     }
-                    if (!woodenSword.IsEquiped) result = woodenSword.Equip(true);
-                    else result = woodenSword.Equip(false);
                 }
-                return result;
+                if (!woodenSword.IsEquiped)
+                {
+                    result = woodenSword.Equip(true);
+                }
+                else
+                {
+                    result = woodenSword.Equip(false);
+                }
             }
-            else
-            {
-                return "Invalid item index.";
-            }
+            return result;
         }
+        else
+        {
+            return "Invalid item index.";
+        }
+    }
+
 
 
         public void Heal(int healAmount)
