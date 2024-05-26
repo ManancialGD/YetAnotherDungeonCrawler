@@ -19,9 +19,13 @@ namespace YetAnotherDungeonCrawler.Models
         public override string Equip(bool b)
         {
             IsEquiped = b;
-            
+
             if (IsEquiped) return "Item is equipped";
             else return "Item unequipped";
+        }
+        public override string ToString()
+        {
+            return $"Heal Potion LVL:{Level}, (AttackBuff of {AttackBuff})";
         }
     }
 }
