@@ -26,21 +26,26 @@ namespace YetAnotherDungeonCrawler.Views
 
             WriteOnConsole($"You are in room {room.RoomIndex} with {(room.Enemy != null ? "1 enemy" : "no enemies")} and {room.Items.Length} items.");
             DisplayPlayerHealth(player);
+            WriteOnConsole("");
             if (room.Enemy != null)
             {
-                WriteOnConsole(room.Enemy.ToString());
+                WriteOnConsole("Room enemies:");
+                WriteOnConsole(" | " + room.Enemy.ToString());
             }
+            if(room.Enemy != null) WriteOnConsole("");
             foreach (var item in room.Items)
             {
+                WriteOnConsole("Room items:");
                 if (item is WoodenSword woodenSword)
                 {
-                    WriteOnConsole(woodenSword.ToString());
+                    WriteOnConsole(" | " + woodenSword.ToString());
                 }
                 else if (item is HealPotion healPotion)
                 {
-                    WriteOnConsole(healPotion.ToString());
+                    WriteOnConsole(" | " + healPotion.ToString());
                 }
             }
+            if(room.Items.Length > 0) WriteOnConsole("");
         }
 
         public static string GetPlayerCommand()
