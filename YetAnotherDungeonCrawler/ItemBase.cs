@@ -3,7 +3,7 @@ namespace YetAnotherDungeonCrawler.Models
     /// <summary>
     /// This class will be a base for other items
     /// </summary>
-    abstract class ItemBase
+    public abstract class ItemBase
     {
         public abstract bool IsEquiped { get; set; }
         // Methods

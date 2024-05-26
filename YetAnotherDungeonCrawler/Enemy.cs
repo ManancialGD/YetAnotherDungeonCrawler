@@ -5,7 +5,7 @@ namespace YetAnotherDungeonCrawler.Models
     /// <summary>
     /// Since we can have multiple types of enemy, this class will be abstract to create others from it.
     /// </summary>
-    abstract class Enemy
+    public abstract class Enemy
     {
         // Health related variables
         public abstract int HP { get; set; }

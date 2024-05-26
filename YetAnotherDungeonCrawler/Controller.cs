@@ -15,7 +15,6 @@ namespace YetAnotherDungeonCrawler.Controllers
 
         public void Run()
         {
-            GenerateMap();
 
             foreach (Room r in map.Rooms)
             {
@@ -31,10 +30,6 @@ namespace YetAnotherDungeonCrawler.Controllers
             }
         }
 
-        public void GenerateMap()
-        {
-            map.InitializeVariables();
-            map.InitializeMap();
-        }
+       
     }
 }

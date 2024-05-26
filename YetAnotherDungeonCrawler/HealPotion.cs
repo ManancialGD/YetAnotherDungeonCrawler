@@ -2,7 +2,7 @@ using System;
 
 namespace YetAnotherDungeonCrawler.Models
 {
-    class HealPotion : ItemBase
+    public class HealPotion : ItemBase
     {
         private bool isEquiped;
         public override bool IsEquiped { get { return isEquiped; } set { isEquiped = value; } }

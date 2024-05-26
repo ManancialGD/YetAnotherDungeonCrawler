@@ -5,7 +5,7 @@ namespace YetAnotherDungeonCrawler.Models
     /// <summary>
     /// This is an Enemy type that has a constructor for instantiation in a room
     /// </summary>
-    class Zombie : Enemy
+    public class Zombie : Enemy
     {
         private bool bIsDead = false;
         public override bool BIsDead { get { return bIsDead; } set { bIsDead = value; } }

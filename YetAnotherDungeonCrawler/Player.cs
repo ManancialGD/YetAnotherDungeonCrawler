@@ -1,6 +1,6 @@
 namespace YetAnotherDungeonCrawler.Models
 {
-    class Player
+    public class Player
     {
         private int maxHP = 100;
         private int hp;
