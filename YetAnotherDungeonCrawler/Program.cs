@@ -24,7 +24,14 @@ namespace YetAnotherDungeonCrawler.Views
             }
             foreach (var item in room.Items)
             {
-                WriteOnConsole(item.ToString());
+                if ( item is WoodenSword woodenSword )
+                {
+                    WriteOnConsole(woodenSword.ToString());
+                }
+                else if ( item is HealPotion healPotion )
+                {
+                    WriteOnConsole(healPotion.ToString());
+                }
             }
         }
 

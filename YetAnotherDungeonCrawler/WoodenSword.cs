@@ -4,14 +4,15 @@ namespace YetAnotherDungeonCrawler.Models
     {
         public override bool IsEquiped { get; set; }
         private int level;
-        public override int Level { get { return Level; } set { level = value; } }
+        public override int Level { get { return level; } set { level = value; } }
 
         private int attackBuff;
-        public override int AttackBuff { get { return attackBuff; } set { attackBuff = value; }}
+        public override int AttackBuff { get { return attackBuff; } set { attackBuff = value; } }
 
 
         public WoodenSword(int level)
         {
+            this.level = level;
             attackBuff = level * 10;
         }
 
@@ -25,7 +26,7 @@ namespace YetAnotherDungeonCrawler.Models
         }
         public override string ToString()
         {
-            return $"Heal Potion LVL:{Level}, (AttackBuff of {AttackBuff})";
+            return $"Wooden Sword LVL:{Level}, (AttackBuff of {AttackBuff})";
         }
     }
 }
