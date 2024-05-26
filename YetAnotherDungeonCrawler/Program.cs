@@ -38,8 +38,15 @@ namespace YetAnotherDungeonCrawler.Views
         public static string GetPlayerCommand()
         {
             WriteOnConsole("Enter a command: ");
-            return Console.ReadLine();
+            string command = Console.ReadLine();
+            for (int i = 0; i < 10; i++)
+            {
+                WriteOnConsole("\n");
+            }
+
+            return command;
         }
+
 
         public static void WriteOnConsole(string message)
         {
