@@ -22,14 +22,20 @@ namespace YetAnotherDungeonCrawler.Models
             this.Inventory = new List<ItemBase>();
         }
 
+
+        /// <summary>
+        /// Will damage the enemy and will add up AttackBuff if the player has a weapon wquipped
+        /// </summary>
+        /// <param name="enemy"></param>
+        /// <returns></returns>
         public string Attack(Enemy enemy)
         {
             int attackBuff = 0;
             foreach (ItemBase item in Inventory)
             {
                 if (item is WoodenSword woodenSword)
-                {
-                    attackBuff = woodenSword.AttackBuff;
+                {   
+                    if (woodenSword.IsEquiped) attackBuff = woodenSword.AttackBuff;
                 }
             }
             enemy.Damage(attackPower + attackBuff);
@@ -41,6 +47,13 @@ namespace YetAnotherDungeonCrawler.Models
             Inventory.Add(item);
             return $"You picked up {item}.";
         }
+
+    /// <summary>
+    /// This Method will receive a index and see what type of item it is, if it's a consumable, it will use it
+    /// if it is a weapon, will equip if not equipped or unequip if equipped
+    /// </summary>
+    /// <param name="index"></param>
+    /// <returns></returns>
     public string InteractWithItem(int index)
     {
         if (index >= 0 && index < Inventory.Count)
@@ -56,15 +69,17 @@ namespace YetAnotherDungeonCrawler.Models
             {
                 foreach (ItemBase currentItem in Inventory)
                 {
-                    if (currentItem is Weapon weapon)
+                    if (currentItem is Weapon weapon) // if it's a weapon, enequip
                     {
                         weapon.Equip(false);
                     }
                 }
+                // if not equipped, equip
                 if (!woodenSword.IsEquiped)
                 {
                     result = woodenSword.Equip(true);
                 }
+                // if already equipped, unequip
                 else
                 {
                     result = woodenSword.Equip(false);
@@ -79,12 +94,19 @@ namespace YetAnotherDungeonCrawler.Models
     }
 
 
-
+        /// <summary>
+        /// Simple Heal method
+        /// </summary>
+        /// <param name="healAmount"></param>
         public void Heal(int healAmount)
         {
             HP += healAmount;
         }
 
+        /// <summary>
+        /// Simple Damage Method
+        /// </summary>
+        /// <param name="damageAmount"></param>
         public void Damage(int damageAmount)
         {
             HP -= damageAmount;
