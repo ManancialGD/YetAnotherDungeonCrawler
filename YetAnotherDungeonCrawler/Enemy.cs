@@ -2,17 +2,10 @@ using System;
 
 namespace YetAnotherDungeonCrawler.Models
 {
-    /// <summary>
-    /// Since we can have multiple types of enemy, this class will be abstract to create others from it.
-    /// </summary>
     public abstract class Enemy
     {
-        // Health related variables
         public abstract int HP { get; set; }
-
-        // Attacks
         public abstract int AttackPower { get; set; }
-        // Bools
         public abstract bool BIsDead { get; set; }
 
         public void Damage(int damageAmount)
@@ -20,9 +13,10 @@ namespace YetAnotherDungeonCrawler.Models
             HP -= damageAmount;
         }
 
-        public void Attack(Player player)
+        public string Attack(Player player)
         {
             player.Damage(AttackPower);
+            return $"The enemy attacked you for {AttackPower} damage.";
         }
     }
 }

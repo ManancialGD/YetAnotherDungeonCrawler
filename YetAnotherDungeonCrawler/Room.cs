@@ -1,18 +1,24 @@
 namespace YetAnotherDungeonCrawler.Models
 {
-    /// <summary>
-    /// Represents an area of the Dungeon
-    /// Can have an enemy, an item or both
-    /// </summary>
     public class Room
     {
         public ItemBase[] Items { get; private set; }
-        public Enemy[] Enemies { get; private set; }
+        public Enemy Enemy { get; private set; }
 
-        public Room(ItemBase[] items, Enemy[] enemies)
+        public Room(ItemBase[] items, Enemy enemy)
         {
-            Items = items ?? new HealPotion[0];
-            Enemies = enemies ?? new Enemy[0];
+            Items = items ?? new ItemBase[0];
+            Enemy = enemy;
+        }
+
+        public void RemoveEnemy()
+        {
+            Enemy = null;
+        }
+
+        public void ClearItems()
+        {
+            Items = new ItemBase[0];
         }
     }
 }

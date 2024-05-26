@@ -1,64 +1,75 @@
+using System.Collections.Generic;
+
 namespace YetAnotherDungeonCrawler.Models
 {
     public class Player
     {
         private int maxHP = 100;
         private int hp;
-        public int HP { get { return hp; } private set { hp = value; if (hp < 0) hp = 0; if (hp > maxHP) hp = maxHP; } } // this set will be private only and will make sure that hp will not be less then 0.
+        public int HP { get { return hp; } private set { hp = value; if (hp < 0) hp = 0; if (hp > maxHP) hp = maxHP; } }
 
         private int attackPower;
         public int AttackPower { get; private set; }
 
         string name;
+        public List<ItemBase> Inventory { get; private set; }
 
-        // Constructor
         public Player(string name)
         {
             this.name = name;
             this.hp = maxHP;
-            this.attackPower = 10; // Default attack power
+            this.attackPower = 10;
+            this.Inventory = new List<ItemBase>();
         }
 
-        /// <summary>
-        /// This Method will be to move player from one room to another
-        /// </summary>
-        public void Move()
+        public string Attack(Enemy enemy)
         {
-            // Movement logic here
+            int attackBuff = 0;
+            foreach (ItemBase item in Inventory)
+            {
+                if (item is WoodenSword woodenSword)
+                {
+                    attackBuff = woodenSword.AttackBuff;
+                }
+            }
+            enemy.Damage(attackPower + attackBuff);
+            return $"You attacked the {enemy}.";
         }
 
-        /// <summary>
-        /// This method will be for attacking enemies.
-        /// It will receive the Enemy and use the method (Damage) from the Enemy.
-        /// </summary>
-        public void Attack(Enemy enemy)
+        public string PickUpItem(ItemBase item)
         {
-            enemy.Damage(attackPower);
+            Inventory.Add(item);
+            return $"You picked up {item}.";
         }
-
-        /// <summary>
-        /// This Method will take an Item and equip in Player's Inventory
-        /// </summary>
-        public void PickUpItem(ItemBase item)
+        public string InteractWithItem(int index)
         {
-            // Logic for picking up and equipping items
+            if (index >= 0 && index < Inventory.Count)
+            {
+                string result = "Item Unkown";
+                ItemBase item = Inventory[index];
+                if (item is HealPotion healPotion)
+                {
+                    result = healPotion.Use(this);
+                    Inventory.RemoveAt(index);
+                }
+                else if ( item is WoodenSword woodenSword)
+                {
+                    result = woodenSword.Equip(true);
+                }
+                return result;
+            }
+            else
+            {
+                return "Invalid item index.";
+            }
         }
 
-        // HP management Methods
 
-        /// <summary>
-        /// This Method is to heal the Player.
-        /// </summary>
-        /// <param name="healAmount"></param>
         public void Heal(int healAmount)
         {
             HP += healAmount;
         }
 
-        /// <summary>
-        /// This Method is to damage Player.
-        /// </summary>
-        /// <param name="damageAmount"></param>
         public void Damage(int damageAmount)
         {
             HP -= damageAmount;

@@ -2,9 +2,6 @@ using System;
 
 namespace YetAnotherDungeonCrawler.Models
 {
-    /// <summary>
-    /// This is an Enemy type that has a constructor for instantiation in a room
-    /// </summary>
     public class Zombie : Enemy
     {
         private bool bIsDead = false;
