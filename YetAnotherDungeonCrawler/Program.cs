@@ -24,7 +24,7 @@ namespace YetAnotherDungeonCrawler.Views
                 gameStarted = false;
             }
 
-            WriteOnConsole($"You are in room {room.RoomIndex} with {(room.Enemy != null ? "1 enemy" : "no enemies")} and {room.Items.Length} items.");
+            WriteOnConsole($"You are in room {room.RoomIndex}");
             DisplayPlayerHealth(player);
             WriteOnConsole("");
             if (room.Enemy != null)
