@@ -4,6 +4,8 @@ namespace YetAnotherDungeonCrawler.Models
 {
     public class Map
     {
+
+        //list of Rooms in which each Room receives an array of items and a maximum of one enemy
         public List<Room> Rooms { get; private set; } = new List<Room>();
 
         public Map()

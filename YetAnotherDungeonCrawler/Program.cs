@@ -28,13 +28,13 @@ namespace YetAnotherDungeonCrawler.Views
             DisplayPlayerHealth(player);
             WriteOnConsole("");
             if (room.Enemy != null)
-            {
+            {// show the enemy in the room, if there is one
                 WriteOnConsole("Room enemies:");
                 WriteOnConsole(" | " + room.Enemy.ToString());
             }
-            if(room.Enemy != null) WriteOnConsole("");
+            if (room.Enemy != null) WriteOnConsole("");
             foreach (var item in room.Items)
-            {
+            { // show the items on the room depending on type
                 WriteOnConsole("Room items:");
                 if (item is WoodenSword woodenSword)
                 {
@@ -45,7 +45,7 @@ namespace YetAnotherDungeonCrawler.Views
                     WriteOnConsole(" | " + healPotion.ToString());
                 }
             }
-            if(room.Items.Length > 0) WriteOnConsole("");
+            if (room.Items.Length > 0) WriteOnConsole("");
         }
 
         public static string GetPlayerCommand()
