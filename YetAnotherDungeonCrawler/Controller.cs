@@ -34,9 +34,11 @@ namespace YetAnotherDungeonCrawler.Controllers
 
                 if (!justEnteredRoom && currentRoom.Enemy != null && !unknownCommand)
                 {
-                    string attackMessage = currentRoom.Enemy.Attack(Player);
-                    Program.WriteOnConsole(attackMessage);
-
+                    if (!unknownCommand)
+                    {
+                        string attackMessage = currentRoom.Enemy.Attack(Player);
+                        Program.WriteOnConsole(attackMessage);
+                    }
                     if (Player.HP <= 0)
                     {
                         Program.WriteOnConsole("[!] You have been killed by the enemy. Game Over.");
@@ -53,7 +55,7 @@ namespace YetAnotherDungeonCrawler.Controllers
                 string command = Program.GetPlayerCommand();
                 ProcessCommand(command, currentRoom);
 
-                
+
                 if (Player.HP <= 0)
                 {
                     Program.WriteOnConsole("[!] You have died. Game Over.");
@@ -108,7 +110,8 @@ namespace YetAnotherDungeonCrawler.Controllers
                         {
                             Program.WriteOnConsole("You have killed the enemy.");
                             currentRoom.RemoveEnemy();
-                            if(currentRoom.RoomIndex == 5){
+                            if (currentRoom.RoomIndex == 5)
+                            {
 
                                 FinishGame();
 
@@ -143,7 +146,8 @@ namespace YetAnotherDungeonCrawler.Controllers
             }
         }
 
-        private void FinishGame(){
+        private void FinishGame()
+        {
             gameFinished = true;
             Program.WriteOnConsole("Congrats, you have finished the game!");
         }
