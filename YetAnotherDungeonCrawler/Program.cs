@@ -39,7 +39,7 @@ namespace YetAnotherDungeonCrawler.Views
         {
             WriteOnConsole("Enter a command: ");
             string command = Console.ReadLine();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 15; i++)
             {
                 WriteOnConsole("\n");
             }
