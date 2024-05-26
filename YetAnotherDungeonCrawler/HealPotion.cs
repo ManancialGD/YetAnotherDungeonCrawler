@@ -10,7 +10,7 @@ namespace YetAnotherDungeonCrawler.Models
         public HealPotion(int level)
         {
             Level = level;
-            healAmount = level * 10;
+            healAmount = 50 + (15 * (level - 1));
         }
 
         public override string Use(Player player)

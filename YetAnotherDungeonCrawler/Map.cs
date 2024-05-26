@@ -29,7 +29,7 @@ namespace YetAnotherDungeonCrawler.Models
             {
                 new WoodenSword(1)
             };
-            Enemy enemyRoom3 = new Zombie(30, 50);
+            Enemy enemyRoom3 = new Zombie(30, 40);
             Rooms.Add(new Room(itemsRoom3, enemyRoom3));
 
             // Room 4: A even more powerfull zombie
@@ -37,7 +37,7 @@ namespace YetAnotherDungeonCrawler.Models
             {
 
             };
-            Enemy enemyRoom4 = new Zombie(50, 75);
+            Enemy enemyRoom4 = new Zombie(50, 50);
             Rooms.Add(new Room(itemRoom4, enemyRoom4));
         }
     }
