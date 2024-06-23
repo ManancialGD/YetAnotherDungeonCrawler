@@ -21,7 +21,7 @@ classDiagram
 
     class Weapon {
         <<abstract>>
-        IsEquiped
+        IsEquipped
         Equip()
         AttackBuff
     }
@@ -35,7 +35,7 @@ classDiagram
         <<abstract>>
         HP
         AttackPower
-        BIsDead
+        IsDead
         Damage()
         Attack()
     }
@@ -48,7 +48,7 @@ classDiagram
     }
 
     class WoodenSword {
-        IsEquiped
+        IsEquipped
         Level
         AttackBuff
         Equip()
@@ -56,15 +56,15 @@ classDiagram
     }
 
     class Zombie {
-        BIsDead
+        IsDead
         HP
         AttackPower
         ToString()
     }
 
-    class ItemBase <|-- Consumable
-    class ItemBase <|-- Weapon
-    class Enemy <|-- Zombie
+    ItemBase <|-- Consumable
+    ItemBase <|-- Weapon
+    Enemy <|-- Zombie
     Consumable <|.. HealPotion
     Weapon <|.. WoodenSword
 ```
